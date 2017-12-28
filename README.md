@@ -98,6 +98,6 @@ Create file in config/initializer/carrierwave.rb, And paste following things wit
 
 ## For more Refer here:
 
-	https://github.com/carrierwaveuploader/carrierwave
+	[a link](https://github.com/carrierwaveuploader/carrierwave)
 
 
