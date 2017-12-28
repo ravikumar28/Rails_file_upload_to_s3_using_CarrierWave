@@ -1,7 +1,5 @@
 # Upload files to S3 on Rails using CarrierWave 
 
-One Paragraph of project description goes here
-
 ### Installation
 
 ```rails g model image```
@@ -43,7 +41,7 @@ storage :file
 ```
 
 
-###To resize your image:
+### To resize your image:
 You can customize size and suffix name here.
 ```	
 	version :thumb_2x do
@@ -54,7 +52,7 @@ You can customize size and suffix name here.
   	end
 ```
 
-###Set your is storage location here.
+### Set your is storage location here.
 It will create folder structure like this =>  "<<modelname>>/file/<<model.id>>""
 ```
     def store_dir
@@ -70,7 +68,7 @@ Assign table field to store file reference
 ```
 	
 
-##S3 Configuration
+## S3 Configuration
 Create file in config/initializer/carrierwave.rb, And paste following things with your S3 details.
 ```
 	CarrierWave.configure do |config|
