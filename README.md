@@ -37,11 +37,11 @@ It will create ```app/uploaders/image_uploader.rb```. And add follwing lines to 
 
 
 ``` 
-    include CarrierWave::RMagick
+include CarrierWave::RMagick
 ```
 
 ```
-    storage :fog
+storage :fog
 ```	
 	
 if you store your files in local system:
@@ -53,44 +53,45 @@ storage :file
 ### To resize your image:
 You can customize size and suffix name here.
 ```	
-	version :thumb_2x do
-    	process :resize_to_fill => [64,64]
-  	end
-  	version :medium do
-    	process :resize_to_fill => [450,621]
-  	end
+version :thumb_2x do
+	process :resize_to_fill => [64,64]
+end
+
+version :medium do
+	process :resize_to_fill => [450,621]
+end
 ```
 
 ### Set your is storage location here.
-It will create folder structure like this =>  "<<modelname>>/file/<<model.id>>""
+It will create folder structure like this =>  "modelname/file/model.id"
 ```
-    def store_dir
-    	"#{model.class.to_s.underscore}/file/#{("%04d" % model.id)}"
-  	end
+def store_dir
+   "#{model.class.to_s.underscore}/file/#{("%04d" % model.id)}"
+end
 ```	
 
 
 In your model file ```app/models/image.rb```
 Assign table field to store file reference
 ```	
-	mount_uploader :name, ImageUploader
+mount_uploader :name, ImageUploader
 ```
 	
 
 ## S3 Configuration
 Create file in config/initializer/carrierwave.rb, And paste following things with your S3 details.
 ```
-	CarrierWave.configure do |config|
-	  config.fog_credentials = {
-	    provider:              'AWS',                        	# required
-	    aws_access_key_id:     '<<Your AWS access Key>>',       # required
-	    aws_secret_access_key: '<<Your AWS secret Key>>',       # required
-	    region:                '<<region>>',                    # optional, defaults to 'us-east-1'
-	  }      
-	  config.fog_directory  = '<<Your AWS Bucket name>>'		# required
-	  config.fog_public     = false                             # optional, defaults to true
-	  config.fog_attributes = { 'Cache-Control' => "max-age=#{365.day.to_i}" } # optional, defaults to {}
-	end
+CarrierWave.configure do |config|
+  config.fog_credentials = {
+    provider:              'AWS',                        	# required
+    aws_access_key_id:     '<<Your AWS access Key>>',       # required
+    aws_secret_access_key: '<<Your AWS secret Key>>',       # required
+    region:                '<<region>>',                    # optional, defaults to 'us-east-1'
+  }      
+  config.fog_directory  = '<<Your AWS Bucket name>>'		# required
+  config.fog_public     = false                             # optional, defaults to true
+  config.fog_attributes = { 'Cache-Control' => "max-age=#{365.day.to_i}" } # optional, defaults to {}
+end
 
 ```
 	
