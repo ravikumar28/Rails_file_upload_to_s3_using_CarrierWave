@@ -9,15 +9,14 @@
 
 Add required gems to your Gemfile
 
-If you face any issues with rmagick, follow this steps:
-	
+	If you face any issues with rmagick, follow this steps:
 	Uninstall existing imagemagick if needed
 
-		```brew install imagemagick@6```
+```brew install imagemagick@6```
 
-Since this is keg-only, you should then force-link it:
+	Since this is keg-only, you should then force-link it:
 
-		```brew link --force imagemagick@6```
+```brew link --force imagemagick@6```
 
 ```
 gem 'rmagick' , '2.13.2'
@@ -95,9 +94,6 @@ Create file in config/initializer/carrierwave.rb, And paste following things wit
 
 ```
 
-
-## For more Refer here:
-
-	[a link](https://github.com/carrierwaveuploader/carrierwave)
+	[For more about CarrierWave 😎](https://github.com/carrierwaveuploader/carrierwave)
 
 
