@@ -93,7 +93,7 @@ Create file in config/initializer/carrierwave.rb, And paste following things wit
 	end
 
 ```
-
-	[For more about CarrierWave 😎](https://github.com/carrierwaveuploader/carrierwave)
+	
+[For more about CarrierWave 😎](https://github.com/carrierwaveuploader/carrierwave)
 
 
